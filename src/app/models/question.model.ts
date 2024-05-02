@@ -11,4 +11,5 @@ export interface Question {
     postedAt: Date;
     updatedAt?: Date;
     postedBy: User;
+    isAnonymous: boolean
 }

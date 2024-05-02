@@ -8,3 +8,68 @@
     border: 1px solid #ccc;
     margin-right: 3px;
 }
+
+pre{
+    background-color: #333;
+    color: #f8f9fa;
+    padding: 4px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Styling for the ng-select dropdown */
+.ng-select-container {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    font-family: inherit;
+    padding: 5px;
+  }
+  
+  /* Styling for the selected tags */
+  .ng-value {
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #333;
+    margin-right: 5px;
+  }
+  
+
+  
+  /* Styling for the placeholder text */
+  .ng-placeholder {
+    color: #999;
+  }
+  
+  /* Styling for the dropdown arrow */
+  .ng-arrow-wrapper {
+    top: calc(50% - 3px);
+    right: 8px;
+  }
+  
+  /* Styling for the dropdown list */
+  .ng-dropdown-panel {
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-top: -1px;
+    overflow: hidden;
+  }
+  
+  /* Styling for the dropdown list items */
+  .ng-dropdown-panel .ng-option {
+    padding: 8px 12px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  /* Styling for the selected dropdown item */
+  .ng-option-selected {
+    background-color: #f0f0f0;
+  }
+
+ 

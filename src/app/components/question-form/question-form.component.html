@@ -1,0 +1,44 @@
+<div class="container p-2">
+    <h2 class="py-4">{{ mode === 'post' ? 'Post Question' : 'Update Question' }}</h2>
+
+<form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="question.title" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <quill-editor [(ngModel)]="question.description" [name]="'description'" placeholder="Type your Question Description" [required]="true"></quill-editor>
+    </div>
+       
+<!--  -->
+<div class="mb-3">
+<label for="tags" class="form-label">Select or add tags</label>
+<ng-select [items]="tags"
+           [(ngModel)]="selectedTags"
+           [multiple]="true"
+           [clearable]="true"
+           [hideSelected]="true"
+           [addTag]="true"
+           [addTagText]="'Add tag '"
+           name="tags"
+          
+           >
+  <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+    <div *ngFor="let item of items" class="ng-value">
+      {{ item }}
+      <span class="ng-value-icon right" (click)="removeTag(item)">×</span>
+    </div>
+  </ng-template>
+</ng-select>
+</div>
+<!--  -->
+    <div class="button-container d-flex justify-content-center align-items-center">
+    <div class="form-check form-switch me-3">
+        <input class="form-check-input" type="checkbox" id="anonymousSwitch" name="isanonymous" [(ngModel)]="question.isAnonymous">
+        <label class="form-check-label" for="anonymousSwitch">Post Anonymously</label>
+      </div>
+    <button type="submit" class="btn btn-primary">{{ mode === 'post' ? 'Post Question' : 'Update Question' }}</button>
+      </div>
+</form>
+</div>

@@ -7,4 +7,5 @@ export interface Answer{
     updatedAt?: Date;
     questionId: number;
     authorName: string;
+    isAnonymous: boolean
 }

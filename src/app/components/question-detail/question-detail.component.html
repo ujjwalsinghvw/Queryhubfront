@@ -1,0 +1,39 @@
+<div class="container pt-4" >
+    <div class="card mb-4" *ngIf="question">
+      <div class="card-body">
+        <h5 class="card-title">{{question.title}}</h5>
+        <p class="card-text" [innerHTML]="question.description"></p>
+        <div class="text-muted mb-3">
+          Asked by {{ !question.isAnonymous? question.postedBy.name : "anonymous user" }} on {{ question.postedAt | date: 'medium' }}
+        </div>
+        <div class="mb-3">
+          Tags: <span *ngFor="let tag of question.tags" class="badge badge-secondary">{{ tag.name }}</span>
+        </div>
+        <hr>
+        <div *ngFor="let answer of answers" class="mb-3">
+          <div [innerHTML]="answer.description" ></div>
+          
+          <div class="text-muted mt-2">
+            Answered by {{ !answer.isAnonymous? answer.authorName :"anonymous" }} on {{ answer.updatedAt || answer.postedAt | date: 'medium' }}
+          </div>
+          <hr>
+        </div>
+        <div class="mt-3">
+          <h6>Your Answer</h6>
+          <div class="ql-editor">
+            <quill-editor  placeholder="Write your answer here..." [(ngModel)]="answerDescription" ></quill-editor>
+          </div>
+
+<div class="button-container d-flex justify-content-center align-items-center">
+  <div class="form-check form-switch me-3">
+    <input class="form-check-input" type="checkbox" id="anonymousSwitch" [(ngModel)]="isAnonymous">
+    <label class="form-check-label" for="anonymousSwitch">Post Anonymously</label>
+  </div>
+  <button class="btn btn-primary" (click)="submitAnswer()">Post Your Answer</button>
+
+</div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
