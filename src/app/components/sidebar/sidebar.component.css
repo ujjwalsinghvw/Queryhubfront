@@ -1,12 +1,13 @@
 .sidebar {
     position: fixed;
-    top: 0;
+    top: 50px;
     left: 0;
     bottom: 0;
     width: 20vw;
     padding: 20px;
     background-color: #f8f9fa;
     border-right: 1px solid #dee2e6;
+    
   }
   
   .sidebar ul {
@@ -27,5 +28,6 @@
   }
   
   .sidebar ul li a:hover {
+    cursor: pointer;
     background-color: #ccc;
   }

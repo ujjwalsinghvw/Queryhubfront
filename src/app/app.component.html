@@ -1,9 +1,23 @@
-<div class="container-fluid">
+
+<div class="container-fluid " *ngIf="showSidebar()">
     <div class="row">
+        <app-navbar class="p-0"></app-navbar>
+    
+    <div class="row mt-5">
+        
         <div class="col-md-3">
             <app-sidebar></app-sidebar>
         </div>
         <div class="col-md-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid " *ngIf="!showSidebar()">
+    <div class="row">
+        
+        <div class=" col-md-6 span-6 offset-3">
             <router-outlet></router-outlet>
         </div>
     </div>

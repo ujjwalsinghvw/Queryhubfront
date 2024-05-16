@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuestionListComponent } from './components/question-list/question-list.component';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import { QuestionFormComponent } from './components/question-form/question-form.component';
 import { PostQuestionComponent } from './components/post-question/post-question.component';
@@ -13,6 +13,12 @@ import { UpdateQuestionComponent } from './components/update-question/update-que
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MyQuestionsComponent } from './components/my-questions/my-questions.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { SignupComponent } from './components/signup/signup.component';
+import { LatestQuestionsComponent } from './components/latest-questions/latest-questions.component';
+import { SearchComponent } from './components/search/search.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -26,7 +32,12 @@ import { MyQuestionsComponent } from './components/my-questions/my-questions.com
     PostQuestionComponent,
     UpdateQuestionComponent,
     SidebarComponent,
-    MyQuestionsComponent
+    MyQuestionsComponent,
+    LoginComponent,
+    SignupComponent,
+    LatestQuestionsComponent,
+    SearchComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +45,7 @@ import { MyQuestionsComponent } from './components/my-questions/my-questions.com
     AppRoutingModule,
     NgSelectModule,
     FormsModule,
+    ReactiveFormsModule,
     QuillModule.forRoot({
       modules:{
         toolbar: [
@@ -55,7 +67,12 @@ import { MyQuestionsComponent } from './components/my-questions/my-questions.com
       }
     })
   ],
-  providers: [],
+  providers: [
+   { provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -26,4 +26,9 @@ export class QuestionService {
   getQuestionById( id:number ): Observable<Question>{
     return this.http.get<Question>(`${API_URL}/questions/${id}`);
   }
+
+  searchQuestion( query: string ):Observable<Question[]>{
+    return this.http.get<Question[]>(`${API_URL}/search?query=${query}`);
+  }
+  
 }

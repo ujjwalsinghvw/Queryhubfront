@@ -1,0 +1,7 @@
+<div class="nav" >
+    <h1>QueryHub</h1>
+    <div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="search()" placeholder="...search here" >
+    <button type="button" (click)="search()" class="btn btn-primary">search</button>
+    </div>
+</div>

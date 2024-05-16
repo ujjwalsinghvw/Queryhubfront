@@ -15,7 +15,7 @@ export class PostQuestionComponent {
       title: ques.title,
       description: ques.description,
       isAnonymous: ques.isAnonymous,
-      postedBy: 1,
+      postedBy: localStorage.getItem('userId'),
       tags: ques.tags
     }
     // console.log(ques);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QuestionService } from '../../services/question.service';
 import { Question } from '../../models/question.model';
 
@@ -7,21 +7,15 @@ import { Question } from '../../models/question.model';
   templateUrl: './question-list.component.html',
   styleUrls: ['./question-list.component.css']
 })
-export class QuestionListComponent implements OnInit {
+export class QuestionListComponent {
 
-  questions: Question[] = [];
+  @Input() questions: Question[] = [];
+  @Input() mode: 'latest' | 'search' = 'latest';
 
   constructor(private qService: QuestionService) { }
 
-  ngOnInit(): void {
-    this.loadQuestions()
-  }
+ 
 
-  loadQuestions(){
-    this.qService.getQuestions().subscribe(ques => {
-      
-      this.questions = ques;
-    });
-  }
+
 
 }
